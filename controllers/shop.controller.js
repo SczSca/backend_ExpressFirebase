@@ -8,8 +8,7 @@ const getAllProducts = ( req, res, next ) =>{
             res.status(200).send(response);
         }else{
             res.status(400).send({
-                msg: 'read error',
-                res: response
+                msg: 'read error'
             })
         }
     }).catch( (error) =>{
@@ -34,20 +33,44 @@ const newProduct = ( req, res, next ) =>{
             });
         }else{
             res.status(400).send({
+                msg: 'error with sent data'
+            });
+        }
+    }).catch( (error) =>{
+        res.status(500).send({
+            msg: 'Internal server error'
+        });
+    })
+};
+
+const buyProduct = ( req, res, next ) =>{
+    const data = {
+        productId: req.body.productId,
+        quantity: req.body.quantity
+    };
+
+    shopManager.buyProduct(data)
+    .then( (response) =>{
+        if(response){
+            res.status(201).send({
+                msg: 'product bought!',
+                res: response
+            });
+        }else{
+            res.status(400).send({
                 msg: 'error with sent data',
-                data: data
+                res: response
             });
         }
     }).catch( (error) =>{
         res.status(500).send({
             msg: 'Internal server error',
-            e: error.message,
-            data: typeof data
+            e: error.message
         });
     })
-};
-
+}
 module.exports = {
     getAllProducts,
-    newProduct
+    newProduct,
+    buyProduct
 }
