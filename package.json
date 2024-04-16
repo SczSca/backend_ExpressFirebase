@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "start_env_dev": "dotenvx run --env-file=helpers/.env.development -- node helpers/config.js"
+  },
+  "dependencies": {
+    "@dotenvx/dotenvx": "^0.24.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "firebase": "^10.11.0",
+    "firebase-admin": "^12.0.0"
+  }
+}
