@@ -22,6 +22,5 @@ module.exports = {
     S_KEY: myCredentials.S_KEY,
     PORT: myCredentials.PORT,
     BASE_URL: myCredentials.BASE_URL,
-    SA_KEY_PATH: myCredentials.SA_KEY_PATH,
     DATABASE_URL: myCredentials.DATABASE_URL
 }
