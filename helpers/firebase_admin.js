@@ -1,5 +1,5 @@
 const { initializeApp, getApps, getApp } = require('firebase-admin/app');
-const { credential } = require('firebase-admin');
+const { admin, credential } = require('firebase-admin');
 const { SA_KEY_PATH, DATABASE_URL } = require('./config');
 const { getAuth } = require('firebase-admin/auth');
 
